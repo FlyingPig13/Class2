@@ -9,34 +9,38 @@ function setup () {
 
 function draw() {
   
-
-
 strokeWeight(0);
+var circleSize = 15
 
-var brushWeight = function(n){
+
+var brushWeight = function(){
   if(keyCode == UP_ARROW){
-    n + 1
+   return circleSize + 5
   }
-  else{ if(keyCode == DOWN_ARROW){
-    n - 1
+  else { if(keyCode == DOWN_ARROW){
+    if (circleSize >= 5){
+      return circleSize - 5
   }
-  else{ n
+    else { return 0
+      }
+    }
+  else { return circleSize
   }
 }
 }
+
 
 var painter = function(){
     if (mouseIsPressed){
-      ellipse(mouseX, mouseY, brushWeight(1), brushWeight(1));
+      ellipse(mouseX, mouseY, brushWeight(), brushWeight());
       }
       else{ fill((random(255)), (random(255)), (random(255)));
+      
       
       
       }
     }
 
-painter()
-  
- 
 
+painter()
 }
