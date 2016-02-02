@@ -1,4 +1,4 @@
- 
+ var circleSize = 15
 
 function setup () {
   createCanvas(600,600);
@@ -10,18 +10,18 @@ function setup () {
 function draw() {
   
 strokeWeight(0);
-var circleSize = 15
+
 
 
 var brushWeight = function(){
-  if(keyCode == UP_ARROW){
-   return circleSize + 5
+  if(keyIsDown(UP_ARROW)){
+   return circleSize = circleSize + 1
   }
-  else { if(keyCode == DOWN_ARROW){
+  else { if(keyIsDown(DOWN_ARROW)){
     if (circleSize >= 5){
-      return circleSize - 5
+      return  circleSize = circleSize - 1
   }
-    else { return 0
+    else {return circleSize = 0
       }
     }
   else { return circleSize
@@ -29,18 +29,18 @@ var brushWeight = function(){
 }
 }
 
+var weight = brushWeight();
 
 var painter = function(){
     if (mouseIsPressed){
-      ellipse(mouseX, mouseY, brushWeight(), brushWeight());
+      ellipse(mouseX, mouseY, weight, weight);
       }
       else{ fill((random(255)), (random(255)), (random(255)));
-      
-      
-      
       }
     }
 
 
 painter()
+console.log(weight)
+console.log(brushWeight())
 }
